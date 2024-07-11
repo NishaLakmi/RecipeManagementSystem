@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Register Page </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- MATERIAL DESIGN ICONIC FONT -->
+  <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+  <!-- STYLE CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="wrapper" style="background-image: url('images/bg-registration-form-2_new.jpg');">
+  <div class="inner">
+    <form th:action="@{/register}" method="post">
+      <!--    th:object="${loginRequest}-->
+      <h3>Registration Form</h3>
+      <div class="form-group">
+        <div class="form-wrapper">
+          <label >User Name</label>
+          <input type="text" class="form-control" name="username" required>
+        </div>
+        <!--						<div class="form-wrapper">-->
+        <!--							<label for="">Last Name</label>-->
+        <!--							<input type="text" class="form-control">-->
+        <!--						</div>-->
+      </div>
+      <div class="form-wrapper">
+        <label >Email</label>
+        <input type="text" class="form-control" name="email" required>
+      </div>
+      <div class="form-wrapper">
+        <label >Password</label>
+        <input type="password" class="form-control"  name="user_password" required>
+      </div>
+      <!--					<div class="form-wrapper">-->
+      <!--						<label for="">Confirm Password</label>-->
+      <!--						<input type="password" class="form-control">-->
+      <!--					</div>-->
+      <div class="checkbox">
+        <!--						<label>-->
+        <!--							<input type="checkbox"> I caccept the Terms of Use & Privacy Policy.-->
+        <!--							<span class="checkmark"></span>-->
+        <!--						</label>-->
+      </div>
+      <button>Register Now</button>
+      <div th:if="${errorMessage}" class="error">
+        <p th:text="${errorMessage}"></p>
+      </div>
+      <p style="height:3px"></p>
+      <p><a th:href="@{/loginPage}"><h2>If you already Register: Login here</h2></a></p>
+      <!--					<p><a th:href="@{/updatePage}"><h2>Do you want to Reset Password: Click here</h2></a></p>-->
+
+
+      <div th:if="${errorMessage}" class="error">
+        <p th:text="${errorMessage}"></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

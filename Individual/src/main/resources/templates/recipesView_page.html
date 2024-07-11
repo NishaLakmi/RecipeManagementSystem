@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Recipe</title>
+    <style>
+      Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color:  #F2EEEB;
+}
+button {
+   background-color: rgb(175, 168, 168);
+       width: 20%;
+        color: white;
+        padding: 15px;
+        margin: 10px 0px;
+        border: solid;
+        cursor: pointer;
+          margin-left: 140px;
+         }
+ form {
+      border: 20px outset rgb(114, 104, 104);
+                width:45%
+                  border: 5px solid;
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+    }
+    label {
+<!--  display: flex;-->
+<!--  flex-direction: row;-->
+  justify-content: flex-end;
+  text-align: right;
+  width: 400px;
+  line-height: 26px;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color:white;
+}
+ #categorizeType,#vegitarian_non {
+        width: 30%;
+         flex: 0 0 200px;
+  margin-left: 140px;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 2px solid ;
+        box-sizing: border-box;
+          display: flex;
+    }
+ button:hover {
+        opacity: 0.7;
+    }
+    button{
+     width:20%;
+     color:white;
+     background-color:rgb(128, 116, 116);
+    }
+  .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        margin: 10px 5px;
+    }
+
+
+ .container {
+        padding: 25px;
+        background-color: rgba(128, 126, 126, 0.902);
+    }
+
+       .text{
+    font-family: 'Indie Flower', cursive;
+    line-height: 0;
+     color:black;
+      font-size: 2em;
+      text-align: center;
+    animation: disappear 4s 2s both infinite;
+}
+@keyframes disappear {
+    50% {
+        text-shadow: 0 0 40px #cbc7c7;
+    }
+    to {
+        text-shadow: 0 0 20px #cbc7c7;
+        opacity: 0;
+    }
+}
+
+        section {
+
+        	font-family: "Alumni Sans", sans-serif;
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 15vh;
+	font-size: 2em;
+	background:black;
+	color: #fff;
+	text-transform: uppercase;
+	gap: 30px;
+}
+ #h1{
+	font-size: 2.5em;
+	text-decoration: underline;
+	@media (max-width: 768px) {
+		font-size: 1.3em;
+	}
+}
+.text-shadow {
+	font-style: italic;
+	text-transform: uppercase;
+	color: transparent;
+	-webkit-text-stroke: #fff;
+	-webkit-text-stroke-width: 1px;
+	text-shadow: 2px 2px 10px $blue;
+	transition: all 0.5s ease-in-out;
+	text-align: center;
+	letter-spacing: 0.2em;
+	animation: flicker 0.5s ease-in-out infinite alternate;
+
+	&:hover {
+		color: #fff;
+	}
+}
+.tags small {
+	@media (max-width: 768px) {
+		font-size: 0.5em;
+	}
+}
+
+@keyframes flicker {
+	0% {
+		opacity: 0.5;
+		text-shadow: 2px 2px 10px $blue;
+	}
+	100% {
+		opacity: 1;
+		text-shadow: 2px 2px 20px $blue;
+	}
+}
+h2{
+	font-size: 26px;
+	color:black;
+}
+.error{
+color:red;
+font-size: 26px;
+
+.table{
+}
+tr:nth-child(even){
+background-color: black;
+ border: 20px outset black;
+color:white
+}
+th, td {
+  border: 21px inset black;
+<!--  border: 20px outset black;-->
+  text-align: left;
+}
+
+a{
+font-size: 26px;
+color:white;
+}
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Recipe</title>
+</head>
+<body>
+<section style="height: 250px;">
+
+
+    <h1 id="h1" class="text-shadow"> -- Dish Diary   -- </h1>
+    <p class="text-shadow"><small>#Cook & Fun #Find Out What</small></p>
+<div class="tags">
+    
+</div>
+</section>
+<p style="height:3px"></p>
+<h1 class="text">  Search recipes </h1>
+<p style="height:3px"></p>
+<form action="/viewRecipes" method="post" >
+    <div class = "container">
+        <div style="align-items: center">
+
+
+            <label >Type:</label><br>
+<!--            <input type="text"  name="categorizeType" required><br>-->
+            <select id="categorizeType" name="categorizeType" required>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+            </select><br>
+
+            <label >vegitarian or Non:</label><br>
+<!--            <input type="text"  name="vegitarian_Non" required><br>-->
+            <select id="vegitarian_non" name="vegitarian_Non" required>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegitarian_Non">Non-Vegetarian</option>
+            </select><br>
+
+            <button type="submit">Search</button>
+
+
+<!--            <div th:if="${recipe}" class="error">-->
+<!--                <p th:text="${recipe}"></p></div>-->
+
+
+        </div>
+    </div>
+</form>
+<h1 >View Recipes</h1>
+<table class="table" style="width:100%; border: 1px inset white;">
+    <thead>
+    <tr style="height:100px; width: 100px;text-align: left; font-size: 25px; color:#E99A10">
+        <th style="width:10%">Recipe Name</th>
+        <th style="width:10%">Description</th>
+        <th style="width:10%">Instructions</th>
+        <th style="width:10%">Ingredients</th>
+        <th style="width:10%">Nutrition's</th>
+        <th style="width:10%">Calories</th>
+        <th style="width:70%">Number Of People</th>
+        <!-- Add more table headers as needed -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over recipes and display details -->
+    <tr th:each="recipe : ${recipe}" style="height:200px; 100px; text-align: left;font-size: 18px; font-weight: bold;">
+        <td th:text="${recipe.title}"></td>
+        <td th:text="${recipe.description}"></td>
+        <td th:text="${recipe.instructions}"></td>
+        <td th:text="${recipe.ingredients}"></td>
+        <td th:text="${recipe.nutritions}"></td>
+        <td th:text="${recipe.calories}"></td>
+        <td th:text="${recipe.numberOfPeple}"></td>
+        <!-- Add more table data as needed -->
+    </tr>
+    </tbody>
+</table>
+<div class="  background-color: black; width:200%; height:200px">
+<p  class="link">
+    <a style="color:black" th:href="@{/recipePage}"><h2>Add New Recipes</h2></a></p>
+    <p  class="link">
+        <a  th:href="@{/recipeUpdatePage}"><h2>Update Recipes</h2></a></p>
+<p  class="link">
+    <a style="color:black" th:href="@{/recipeDeletePage}"><h2>Delete Recipes</h2></a></p>
+</div>
+<!--<div id="responseMessage"></div>-->
+
+<!--<script>-->
+<!--        document.getElementById("recipeForm").addEventListener("submit", function(event) {-->
+<!--            event.preventDefault();-->
+
+<!--            var formData = new FormData(this);-->
+
+<!--            fetch('/viewRecipes', {-->
+<!--                method: 'GET',-->
+<!--                body: formData-->
+<!--            })-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => {-->
+<!--                if (data.success) {-->
+<!--                    document.getElementById("responseMessage").innerHTML = "Recipe added successfully!";-->
+<!--                } else {-->
+<!--                    document.getElementById("responseMessage").innerHTML = "Failed to add recipe.";-->
+<!--                }-->
+<!--            })-->
+<!--            .catch(error => {-->
+<!--                console.error('Error:', error);-->
+<!--                document.getElementById("responseMessage").innerHTML = "An error occurred while processing your request.";-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+</body>
+</html>
+
+</body>
+</html>
